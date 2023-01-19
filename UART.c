@@ -5,7 +5,7 @@ extern void Configurar_UART4(void)
     SYSCTL->RCGCUART  = (1<<4);   //Paso 1 (RCGCUART) pag.344 UART/modulo0 0->Disable 1->Enable
     //                    A      B     C     D      E     F 
     SYSCTL->RCGCGPIO |= (1<<0)|(1<<1)|(0<<2)|(0<<3)|(0<<4)|(0<<5);     //Paso 2 (RCGCGPIO) pag.340 Enable clock port A
-    GPIOA_AHB->DIR = (0<<2) | (1<<3);//PA2 PA3
+    GPIOA_AHB->DIR = (0<<2) | (1<<3);    // Usamos los pines PA2 y PA3, que son el Tx y Rx
     //(GPIOAFSEL) pag.671 Enable alternate function
     GPIOA_AHB->AFSEL = (1<<2) | (1<<3);
     //GPIO Port Control (GPIOPCTL) PA0-> U0Rx PA1-> U0Tx pag.688
